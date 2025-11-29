@@ -1,4 +1,6 @@
 import { WhopApp } from "@whop/react/components";
+import { Theme } from "@whop/frosted-ui";
+import { SkaelixFooter } from "@/components/branding/SkaelixFooter";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -28,7 +30,16 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<WhopApp>{children}</WhopApp>
+				<WhopApp>
+					<Theme appearance="dark">
+						<div className="min-h-screen flex flex-col bg-gray-900 text-white">
+							<main className="flex-1 p-6">
+								{children}
+							</main>
+							<SkaelixFooter />
+						</div>
+					</Theme>
+				</WhopApp>
 			</body>
 		</html>
 	);
